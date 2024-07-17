@@ -15,19 +15,22 @@ const App = () => {
   return (
     <div>
       <nav>
-        <div className="nav-left">
+      <div className="nav-left">
           <div className="menu-hamburger" onClick={toggleMenu}>
-            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
+            <img 
+              src={menuOpen ? "/close.svg" : "/menu.svg"} 
+              alt="Menu" 
+              className={`hamburger-icon ${menuOpen ? 'open' : ''}`} 
+            />
           </div>
           <div className={`menu-expandable ${menuOpen ? 'open' : ''}`}>
             <ul>
               <li><Link to="/" onClick={toggleMenu}>Início</Link></li>
-                  <ul>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Registar</Link></li>
-                <li className="menu-categories">
+                <ul>
+                  <li><Link to="/login">Login</Link></li>
+                  <li><Link to="/register">Registar</Link></li>
+                </ul>
+              <li className="menu-categories">
                 <span onClick={toggleMenu}>Categorias</span>
                 <ul className={`dropdown-content ${menuOpen ? 'show' : ''}`}>
                   <li><Link to="/categoria1" onClick={toggleMenu}>Categoria 1</Link></li>
@@ -36,8 +39,9 @@ const App = () => {
                 </ul>
               </li>
             </ul>
-            </ul>
           </div>
+        </div>
+        <div className="nav-right">
         </div>
       </nav>
       <Routes>
