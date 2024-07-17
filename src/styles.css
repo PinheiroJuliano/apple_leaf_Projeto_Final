@@ -1,6 +1,5 @@
 /* styles.css */
 
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -8,10 +7,24 @@ body {
   background-color: #f5f5f5;
 }
 
+.navbar {
+  background-color: #2f5b31;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
 .menu-hamburger {
   cursor: pointer;
   z-index: 1000;
-  position: fixed;
   top: 20px;
   left: 20px;
 }
@@ -25,6 +38,7 @@ body {
 .hamburger-icon.open {
   transform: rotate(90deg);
 }
+
 .menu-expandable {
   position: fixed;
   top: 0;
@@ -50,7 +64,6 @@ body {
 
 .menu-expandable ul li {
   padding: 15px;
-  border-bottom: 1px solid #555;
 }
 
 .menu-expandable ul li a {
@@ -71,19 +84,6 @@ body {
   justify-content: flex-end;
 }
 
-.nav-right li {
-  margin: 0 10px;
-}
-
-.nav-right a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.nav-right a:hover {
-  text-decoration: underline;
-}
 
 .search-bar-container {
   display: flex;
@@ -93,7 +93,7 @@ body {
 }
 
 .search-bar {
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -120,7 +120,11 @@ body {
   font-size: 16px; /* Menor do que o texto "Categorias" */
 }
 
-
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
 
 #lista-categorias{
   display: flex;
