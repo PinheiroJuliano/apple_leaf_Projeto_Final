@@ -6,32 +6,39 @@ import Register from './components/Register';
 import './styles.css'; // Importando o arquivo CSS
 
 const App = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <div>
       <nav>
-        <ul>
-          <div className="nav-left">
-            <li><Link to="/">Início</Link></li>
-            <li className="dropdown">
-              <a href="#" className="dropbtn" onClick={toggleDropdown}>Categorias</a>
-              <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
-                <Link to="/categoria1">Categoria 1</Link>
-                <Link to="/categoria2">Categoria 2</Link>
-                <Link to="/categoria3">Categoria 3</Link>
-              </div>
-            </li>
+        <div className="nav-left">
+          <div className="menu-hamburger" onClick={toggleMenu}>
+            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`hamburger-bar ${menuOpen ? 'open' : ''}`}></div>
           </div>
-          <div className="nav-right">
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Registar</Link></li>
+          <div className={`menu-expandable ${menuOpen ? 'open' : ''}`}>
+            <ul>
+              <li><Link to="/" onClick={toggleMenu}>Início</Link></li>
+                  <ul>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/register">Registar</Link></li>
+                <li className="menu-categories">
+                <span onClick={toggleMenu}>Categorias</span>
+                <ul className={`dropdown-content ${menuOpen ? 'show' : ''}`}>
+                  <li><Link to="/categoria1" onClick={toggleMenu}>Categoria 1</Link></li>
+                  <li><Link to="/categoria2" onClick={toggleMenu}>Categoria 2</Link></li>
+                  <li><Link to="/categoria3" onClick={toggleMenu}>Categoria 3</Link></li>
+                </ul>
+              </li>
+            </ul>
+            </ul>
           </div>
-        </ul>
+        </div>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
