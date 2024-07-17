@@ -28,6 +28,10 @@ nav ul {
   margin-left: auto;
 }
 
+.nav-right .dropdown {
+  position: relative;
+}
+
 nav li {
   margin: 0 10px;
 }
@@ -68,6 +72,21 @@ nav a:hover {
   display: block;
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%; /* Posiciona o dropdown abaixo do item de menu */
+  right: 0; /* Alinha o dropdown à direita */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Mostra o dropdown ao passar o mouse */
+}
+
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
@@ -88,4 +107,29 @@ form {
 
 form div {
   margin-bottom: 10px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-icon {
+  margin-left: -40px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 0 20px 20px 0;
 }

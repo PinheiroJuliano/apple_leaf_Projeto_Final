@@ -17,7 +17,7 @@ const App = () => {
       <nav>
         <ul>
           <div className="nav-left">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Início</Link></li>
             <li className="dropdown">
               <a href="#" className="dropbtn" onClick={toggleDropdown}>Categorias</a>
               <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
@@ -29,7 +29,7 @@ const App = () => {
           </div>
           <div className="nav-right">
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/register">Registar</Link></li>
           </div>
         </ul>
       </nav>
