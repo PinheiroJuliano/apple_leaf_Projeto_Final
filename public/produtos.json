@@ -1,0 +1,128 @@
+[
+    {
+      "_id": "669133f3eb9fe30304e9502c",
+      "category": "Hidratação",
+      "name": "Loção Hidratante - Deleite",
+      "image": "https://shorturl.at/3QoZs",
+      "price": 100
+    },
+    {
+      "_id": "669133f3eb9fe30304e9502d",
+      "category": "Hidratação",
+      "name": "Loção Nutritiva Desodorante - Ameixa",
+      "image": "https://shorturl.at/0nZhL",
+      "price": 150
+    },
+    {
+      "_id": "669133f3eb9fe30304e9502e",
+      "category": "Hidratação",
+      "name": "Loção Hidratante Desodorante - Melissa",
+      "image": "https://shorturl.at/GIKkJ",
+      "price": 30
+    },
+    {
+      "_id": "669133f3eb9fe30304e9502f",
+      "category": "Hidratação",
+      "name": "Loção Noturna Desodorante - Orquídea Noire",
+      "image": "https://shorturl.at/vojcr",
+      "price": 35
+    },
+    {
+      "_id": "669133f3eb9fe30304e95030",
+      "category": "Hidratação",
+      "name": "Loção Hidratante Desodorante - Bubbaloo",
+      "image": "https://shorturl.at/QifBx",
+      "price": 50
+    },
+    {
+      "_id": "669133f3eb9fe30304e95031",
+      "category": "Hidratação",
+      "name": "Loção Hidratante Desodorante - Show de Banho",
+      "image": "https://tinyurl.com/kmthz6ca",
+      "price": 50
+    },
+    {
+      "_id": "669133f3eb9fe30304e95032",
+      "category": "Perfume",
+      "name": "The Blend",
+      "image": "https://tinyurl.com/y42pz73j",
+      "price": 70
+    },
+    {
+      "_id": "669133f3eb9fe30304e95033",
+      "category": "Perfume",
+      "name": "Portinari",
+      "image": "https://tinyurl.com/ykdajuby",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95034",
+      "category": "Perfume",
+      "name": "Glamour - Gold Glam",
+      "image": "https://tinyurl.com/5dyzk4wk",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95035",
+      "category": "Perfume",
+      "name": "EGEO",
+      "image": "https://cdn.awsli.com.br/800x800/1009/1009849/produto/236705291da4f72cfb3.jpg",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95036",
+      "category": "Perfume",
+      "name": "Malbec Noir",
+      "image": "https://tinyurl.com/3kvhurvy",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95037",
+      "category": "Cabelo",
+      "name": "Match - Fonte da Nutrição",
+      "image": "https://tinyurl.com/nhe6snjp",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95038",
+      "category": "Cabelo",
+      "name": "Match - SOS Cauterização",
+      "image": "https://tinyurl.com/4rvdndvb",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e95039",
+      "category": "Cabelo",
+      "name": "Match - Crescimento",
+      "image": "https://tinyurl.com/5f3asw7b",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e9503a",
+      "category": "Cabelo",
+      "name": "Match - Fonte da Nutrição",
+      "image": "https://dcdn.mitiendanube.com/stores/884/593/products/bt_combo131-1fd1d157776ea8f16e15723852521964-640-0.png",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e9503b",
+      "category": "Cabelo",
+      "name": "Cuide-se Bem - Banana",
+      "image": "https://tinyurl.com/5cu5kc29",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e9503c",
+      "category": "Cabelo",
+      "name": "Match - Escudo de Força",
+      "image": "https://i0.wp.com/oboticariobyludiane.com/wp-content/uploads/2022/07/0145a240-5431-4377-9fab-292f0c3e82fa-condicionador-match-escudo-de-forca-250-ml.webp?fit=800%2C800&ssl=1",
+      "price": 40
+    },
+    {
+      "_id": "669133f3eb9fe30304e9503d",
+      "category": "Cabelo",
+      "name": "Match - Tônico de Crescimento",
+      "image": "https://dcdn.mitiendanube.com/stores/884/593/products/204171-e0bd6ec81f1d7ea32c16071268021933-640-0.png",
+      "price": 40
+    }
+  ]
