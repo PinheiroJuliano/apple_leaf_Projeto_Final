@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios'; // Importe axios para fazer requisições HTTP
 import '../styles.css'; // Importando o arquivo de estilo
@@ -42,21 +41,20 @@ const Home = () => {
       <div className="highlights-section">
         <h2>Destaques</h2>
         <Swiper
-            spaceBetween={1} // Espaço entre os slides
-            slidesPerView={3} // Quantidade de slides visíveis ao mesmo tempo
-            navigation
-            pagination={{ clickable: true }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            {products.map((product) => (
-              <SwiperSlide key={product._id}>
-                <div className="highlight-item">
-                  <img src={product.image} alt={product.name} />
-                  <p>{product.name}</p>
-                </div>
-              </SwiperSlide>
-            ))}
+          spaceBetween={0} // Espaço entre os slides
+          slidesPerView={3} // Quantidade de slides visíveis ao mesmo tempo
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {products.map((product) => (
+            <SwiperSlide key={product._id}>
+              <div className="highlight-item">
+                <img src={product.image} alt={product.name} />
+                <p>{product.name}</p>
+                <p>R$ {product.price.toFixed(2)}</p>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
