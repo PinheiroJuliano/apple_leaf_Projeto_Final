@@ -142,6 +142,7 @@ body {
   margin-right: 1em;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .highlight-item {
@@ -150,13 +151,11 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 0; /* Remove qualquer margem */
-  padding: 0; /* Remove qualquer padding */
 }
 
 .highlight-item img {
-  width: 80%; /* Ajuste o tamanho da imagem conforme necessário */
-  height: 80%; /* Ajuste o tamanho da imagem conforme necessário */
+  width: 80%;
+  height: 80%;
   object-fit: cover;
   border-radius: 10%;
   margin-bottom: 10px;
@@ -164,9 +163,10 @@ body {
 }
 
 .highlight-item p {
-  margin: 0; /* Remove qualquer margem no texto */
-  padding: 0; /* Remove qualquer padding no texto */
-  text-align: center; /* Centralize o texto */
+  font-size: 0.6em;
+  margin: 0;
+  padding: 0;
+  text-align: center; 
 }
 
 .menu-categories span {

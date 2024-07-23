@@ -42,7 +42,7 @@ const Home = () => {
       <div className="highlights-section">
         <h2 class='highlights-tittle' id='tittle'>Destaques</h2>
         <Swiper
-          spaceBetween={-20} // Espaço entre os slides
+          spaceBetween={0} // Espaço entre os slides
           slidesPerView={4} // Quantidade de slides visíveis ao mesmo tempo
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
