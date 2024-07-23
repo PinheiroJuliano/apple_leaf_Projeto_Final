@@ -1,5 +1,15 @@
 /* styles.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+:root{
+  --fonte-principal: Arial;
+  --fonte-secundaria: "Playwrite DK Loopet", cursive;
+  --cor-primaria: #2f5b31;
+  --cor-secundaria: #bfbfbf;
+  --black: #090b09;
+  --white: #effff2;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -85,6 +95,17 @@ body {
   justify-content: flex-end;
 }
 
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#lista-categorias{
+  display: flex;
+  flex-direction: column;
+  font-size: 0.5em;
+}
 
 .search-bar-container {
   display: flex;
@@ -109,6 +130,11 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 0 20px 20px 0; /* Ajuste conforme necessário */
+}
+
+#tittle{
+  color: var(--cor-primaria);
+  font-size: 2em;
 }
 
 .highlights-section{
@@ -153,14 +179,84 @@ body {
   font-size: 16px; /* Menor do que o texto "Categorias" */
 }
 
-.profile-icon {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+
+/*BANNER*/
+
+.banner {
+  background-image: url('../public/banner-bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding: 20px 0; /* Ajuste o padding conforme necessário */
 }
 
-#lista-categorias{
+.banner__titulo{
+  text-align: left;
+  margin-left: 0.5em;
+}
+
+.banner-content-titulo{
+  color: white;
+}
+
+.banner-content {
+  justify-items: center;
+  align-items: center;
+  text-align: left;
+  color: white; /* Ajuste a cor do texto conforme necessário */
   display: flex;
-  flex-direction: column;
-  font-size: 0.5em;
+  flex-direction: row;
+  margin: 0em 20em 0 20em;
+}
+
+.banner-content-img-wrapper{
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-product {
+  margin-top: 20px;
+  padding-left: 10%;
+}
+
+.banner-product-image {
+  width: 13em;
+  height: 13em;
+}
+
+.banner-container__descricao{
+  width: 25%;
+}
+
+.banner-product-description {
+  text-align: left;
+  margin-right: 10%;
+}
+
+.banner-product-description h3 {
+  color: var(--white);
+  margin: 0;
+}
+
+.banner-product-description p {
+  margin: 0;
+  color: var(--cor-secundaria);
+}
+
+
+@media only screen and (max-width: 900px) {
+  body {
+    background-color: rgb(238, 245, 219);
+  }
+
+  .banner-content {
+    justify-items: center;
+    align-items: center;
+    text-align: left;
+    color: white; /* Ajuste a cor do texto conforme necessário */
+    display: flex;
+    flex-direction: column;
+    margin: 0em 1em 0 1em;
+  }
+  
 }

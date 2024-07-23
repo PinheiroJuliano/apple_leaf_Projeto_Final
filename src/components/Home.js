@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import axios from 'axios'; // Importe axios para fazer requisições HTTP
 import '../styles.css'; // Importando o arquivo de estilo
+import Banner from './Banner'; // Importe o componente Banner
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -39,16 +40,16 @@ const Home = () => {
       </div>
       
       <div className="highlights-section">
-        <h2>Destaques</h2>
+        <h2 class='highlights-tittle' id='tittle'>Destaques</h2>
         <Swiper
-          spaceBetween={0} // Espaço entre os slides
-          slidesPerView={3} // Quantidade de slides visíveis ao mesmo tempo
+          spaceBetween={-20} // Espaço entre os slides
+          slidesPerView={4} // Quantidade de slides visíveis ao mesmo tempo
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {products.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="highlight-item">
+              <div className="highlight-item"> 
                 <img src={product.image} alt={product.name} />
                 <p>{product.name}</p>
                 <p>R$ {product.price.toFixed(2)}</p>
@@ -57,6 +58,9 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
+
+      {/* Adicione o Banner aqui */}
+      <Banner />
     </div>
   );
 };

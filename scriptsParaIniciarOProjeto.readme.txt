@@ -1,3 +1,3 @@
 npm install react-scripts@latest
-npm cache clean --force
 npm install react-router-dom
+npm cache clean --force
