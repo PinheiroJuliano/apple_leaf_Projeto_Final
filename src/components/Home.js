@@ -2,28 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import axios from 'axios'; // Importe axios para fazer requisições HTTP
 import '../styles.css'; // Importando o arquivo de estilo
 import Banner from './Banner'; // Importe o componente Banner
+import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState('Hidratação'); // Categoria inicial
 
   useEffect(() => {
-    // Função para carregar os produtos da API com base na categoria
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/produtos'); // Certifique-se de usar a URL correta
-        console.log('Dados recebidos da API:', response.data); // Log para depuração
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar produtos:', error);
-      }
+    // Carregar produtos destacados na inicialização
+    const loadProducts = async () => {
+      const highlightedProducts = await fetchProducts({ destaque: true });
+      setProducts(highlightedProducts);
     };
 
-    fetchProducts();
-  }, [currentCategory]); // Executa sempre que a categoria atual mudar
+    loadProducts();
+  }, []); // Executa apenas na montagem do componente
 
   return (
     <div>
@@ -39,12 +33,18 @@ const Home = () => {
           alt="Buscar" 
         />
       </div>
-      
+      <Banner />
       <div className="highlights-section">
         <h2 className="highlights-tittle" id="tittle">Destaques</h2>
         <Swiper
           spaceBetween={0} // Espaço entre os slides
-          slidesPerView={4} // Quantidade de slides visíveis ao mesmo tempo
+          slidesPerView={1} // Quantidade de slides visíveis ao mesmo tempo
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 2 },
+          }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
@@ -59,9 +59,6 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
-
-      {/* Adicione o Banner aqui */}
-      <Banner />
     </div>
   );
 };

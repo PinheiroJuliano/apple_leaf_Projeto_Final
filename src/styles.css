@@ -15,6 +15,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
+  box-sizing: border-box;
 }
 
 
@@ -135,14 +136,22 @@ body {
 #tittle{
   color: var(--cor-primaria);
   font-size: 2em;
+  margin-bottom: 0.5em;
+  margin-top: 0;
 }
 
-.highlights-section{
-  margin-left: 1em;
-  margin-right: 1em;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+.swiper-wrapper{
+  max-height: 30%;
+}
+
+.highlights-section {
+  padding: 20px;
+  background-color: #fff;
+  min-height: 40%; /* Defina uma altura mínima conforme necessário */
+}
+
+.swiper-container {
+  height: 100%; /* A altura do contêiner Swiper será 100% da altura da seção de destaques */
 }
 
 .highlight-item {
@@ -151,23 +160,22 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  height: 100%; /* A altura do item de destaque será 100% da altura do slide */
 }
 
 .highlight-item img {
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
+  max-width: 50%;
+  max-height: 20%; /* Ajuste conforme necessário para evitar imagens muito grandes */
+  object-fit:contain; /* Ajuste a imagem para caber dentro do contêiner sem cortar */
   border-radius: 10%;
   margin-bottom: 10px;
-  display: block;
 }
 
 .highlight-item p {
-  font-size: 0.6em;
-  margin: 0;
-  padding: 0;
-  text-align: center; 
+  font-size: 14px;
+  margin: 5px 0;
 }
+
 
 .menu-categories span {
   font-size: 22px; /* Maior do que as categorias individuais */
@@ -244,7 +252,7 @@ body {
 }
 
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1095px) {
   body {
     background-color: rgb(238, 245, 219);
   }
