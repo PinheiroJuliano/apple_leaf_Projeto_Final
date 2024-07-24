@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 const port = process.env.PORT || 3001;
+const cors = require('cors');
+app.use(cors());
+
 
 // String de conexão do MongoDB a partir do arquivo .env
 const uri = process.env.MONGODB_URI;
@@ -15,7 +18,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(express.json());
 
-// Modelo genérico para acessar a coleção 'produtos'
+// Modelo genérico para acessar a coleção 'listingsAndReviews'
 const GenericModel = mongoose.model('GenericModel', new mongoose.Schema({}, { strict: false }), 'produtos');
 
 // Rota para a raiz da aplicação
@@ -23,21 +26,20 @@ app.get('/', (req, res) => {
   res.send('Bem-vindo à API');
 });
 
-// Rota para criar um novo item na coleção 'produtos'
-app.post('/produtos', async (req, res) => {
+// Rota para criar um novo item na coleção 'listingsAndReviews'
+app.post('/items', async (req, res) => {
   try {
-    console.log('Recebendo POST /produtos:', req.body);
+    console.log('Recebendo POST /items:', req.body);
     const newItem = new GenericModel(req.body);
     const savedItem = await newItem.save();
-    console.log('Item salvo:', savedItem);
     res.status(201).json(savedItem);
   } catch (error) {
-    console.error('Erro em POST /produtos:', error);
+    console.error('Erro em POST /items:', error);
     res.status(400).json({ message: error.message });
   }
 });
 
-// Rota para obter todos os itens da coleção 'produtos'
+// Rota para obter todos os itens da coleção 'listingsAndReviews'
 app.get('/produtos', async (req, res) => {
   try {
     console.log('Recebendo GET /produtos');

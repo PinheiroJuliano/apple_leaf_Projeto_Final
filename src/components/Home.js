@@ -14,7 +14,8 @@ const Home = () => {
     // Função para carregar os produtos da API com base na categoria
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`/produtos.json`);
+        const response = await axios.get('http://localhost:3001/produtos'); // Certifique-se de usar a URL correta
+        console.log('Dados recebidos da API:', response.data); // Log para depuração
         setProducts(response.data);
       } catch (error) {
         console.error('Erro ao buscar produtos:', error);
@@ -40,7 +41,7 @@ const Home = () => {
       </div>
       
       <div className="highlights-section">
-        <h2 class='highlights-tittle' id='tittle'>Destaques</h2>
+        <h2 className="highlights-tittle" id="tittle">Destaques</h2>
         <Swiper
           spaceBetween={0} // Espaço entre os slides
           slidesPerView={4} // Quantidade de slides visíveis ao mesmo tempo
