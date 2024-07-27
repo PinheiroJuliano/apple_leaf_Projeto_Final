@@ -1,14 +1,41 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import '../styles.css'; // Importando o arquivo de estilo
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Aqui você adicionaria a lógica de registro
-    console.log('Username:', username, 'Email:', email, 'Password:', password);
+
+    const customerData = {
+      username,
+      email,
+      password,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:3001/register', customerData);
+
+      if (response.status === 201) {
+        setSuccessMessage('Registro bem-sucedido! Redirecionando para a página de login...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000); // Redireciona após 2 segundos
+      } else {
+        console.error('Erro no registro:', response.statusText);
+        // Adicione lógica de tratamento de erro aqui
+      }
+    } catch (error) {
+      console.error('Erro de conexão:', error);
+      // Adicione lógica de tratamento de erro aqui
+    }
   };
 
   return (
@@ -41,6 +68,7 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+      {successMessage && <p>{successMessage}</p>}
     </div>
   );
 };

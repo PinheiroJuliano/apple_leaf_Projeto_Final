@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const app = express();
 const port = process.env.PORT || 3001;
 const cors = require('cors');
 app.use(cors());
-
 
 // String de conexão do MongoDB a partir do arquivo .env
 const uri = process.env.MONGODB_URI;
@@ -20,6 +20,15 @@ app.use(express.json());
 
 // Modelo genérico para acessar a coleção 'listingsAndReviews'
 const GenericModel = mongoose.model('GenericModel', new mongoose.Schema({}, { strict: false }), 'produtos');
+
+// Modelo para a coleção 'customers'
+const customerSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+});
+
+const Customer = mongoose.model('Customer', customerSchema, 'customers');
 
 // Rota para a raiz da aplicação
 app.get('/', (req, res) => {
@@ -49,6 +58,52 @@ app.get('/produtos', async (req, res) => {
   } catch (error) {
     console.error('Erro em GET /produtos:', error);
     res.status(500).json({ message: error.message });
+  }
+});
+
+// Rota para registrar um novo usuário na coleção 'customers'
+app.post('/register', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    console.log('Recebendo POST /register:', req.body);
+
+    // Criptografar a senha antes de salvar
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newCustomer = new Customer({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    const savedCustomer = await newCustomer.save();
+    res.status(201).json(savedCustomer);
+  } catch (error) {
+    console.error('Erro em POST /register:', error);
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Rota para login
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const customer = await Customer.findOne({ email });
+
+    if (!customer) {
+      return res.status(404).json({ message: 'Usuário não encontrado' });
+    }
+
+    const isMatch = await bcrypt.compare(password, customer.password);
+
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Senha incorreta' });
+    }
+
+    res.status(200).json({ message: 'Login bem-sucedido' });
+  } catch (error) {
+    console.error('Erro em POST /login:', error);
+    res.status(500).json({ message: 'Erro no servidor' });
   }
 });
 

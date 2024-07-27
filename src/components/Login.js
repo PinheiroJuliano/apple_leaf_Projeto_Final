@@ -1,17 +1,40 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import '../login.css'; // Importando o arquivo de estilo
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Aqui você adicionaria a lógica de autenticação
-    console.log('Email:', email, 'Password:', password);
+
+    const loginData = {
+      email,
+      password,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:3001/login', loginData);
+
+      if (response.status === 200) {
+        console.log('Login bem-sucedido:', response.data);
+        navigate('../'); // Redirecione para a página do dashboard ou outra página
+      } else {
+        setErrorMessage(response.data.message);
+      }
+    } catch (error) {
+      console.error('Erro de conexão:', error);
+      setErrorMessage('Erro de conexão');
+    }
   };
 
   return (
-    <div>
+    <div className='login_container'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -32,6 +55,7 @@ const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };
