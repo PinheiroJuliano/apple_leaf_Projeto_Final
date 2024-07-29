@@ -53,7 +53,6 @@ app.get('/produtos', async (req, res) => {
   try {
     console.log('Recebendo GET /produtos');
     const items = await GenericModel.find();
-    console.log('Itens encontrados:', items);
     res.status(200).json(items);
   } catch (error) {
     console.error('Erro em GET /produtos:', error);
