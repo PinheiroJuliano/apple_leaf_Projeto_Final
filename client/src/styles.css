@@ -5,7 +5,8 @@
   --fonte-principal: Arial;
   --fonte-secundaria: "Playwrite DK Loopet", cursive;
   --cor-primaria: #2f5b31;
-  --cor-secundaria: #bfbfbf;
+  --cor-secundaria: #8fb575;
+  --cor-terciaria: #bfbfbf;
   --black: #090b09;
   --white: #effff2;
 }
@@ -179,7 +180,7 @@ body {
 
 .menu-categories span {
   font-size: 22px; /* Maior do que as categorias individuais */
-  color: white;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -271,17 +272,17 @@ body {
 
 .cell1 {
   grid-area: cell1;
-  background-color: lightblue;
+  background-color: var(--cor-secundaria);
 }
 
 .cell2 {
   grid-area: cell2;
-  background-color: lightcoral;
+  background-color: var(--cor-secundaria);
 }
 
 .cell3 {
   grid-area: cell3;
-  background-color: lightgreen;
+  background-color: var(--cor-secundaria);
 }
 
 .pagebuilder-column {
