@@ -254,14 +254,13 @@ body {
 .pagebuilder-columns {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0.1em;
 }
 
 .pagebuilder-column {
   border: 1px solid #ddd;
   padding: 20px;
   background: #f9f9f9;
-  border-radius: 8px;
 }
 
 .pagebuilder-column h3 {
