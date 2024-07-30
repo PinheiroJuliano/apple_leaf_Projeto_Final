@@ -61,16 +61,16 @@ const Home = () => {
       </div>
 
       {/* Seções do tipo pagebuilder-column */}
-      <div className="pagebuilder-columns">
-        <div className="pagebuilder-column">
+      <div className="grid-container">
+        <div className="pagebuilder-column cell1">
           <h3>Seção 1</h3>
           <p>Conteúdo da seção 1</p>
         </div>
-        <div className="pagebuilder-column">
+        <div className="pagebuilder-column cell2">
           <h3>Seção 2</h3>
           <p>Conteúdo da seção 2</p>
         </div>
-        <div className="pagebuilder-column">
+        <div className="pagebuilder-column cell3">
           <h3>Seção 3</h3>
           <p>Conteúdo da seção 3</p>
         </div>
