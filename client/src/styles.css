@@ -251,7 +251,26 @@ body {
   color: var(--cor-secundaria);
 }
 
+.pagebuilder-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+.pagebuilder-column {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.pagebuilder-column h3 {
+  margin-top: 0;
+}
+
+.pagebuilder-column p {
+  margin: 10px 0 0;
+}
 
 
 @media only screen and (max-width: 1095px) {

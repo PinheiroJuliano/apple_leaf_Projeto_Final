@@ -25,7 +25,7 @@ const Home = () => {
         <input 
           type="text" 
           className="search-bar" 
-          placeholder="Encontre sua próxima fragrância" 
+          placeholder="O que você procura hoje?" 
         />
         <img 
           className="search-icon" 
@@ -58,6 +58,22 @@ const Home = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+
+      {/* Seções do tipo pagebuilder-column */}
+      <div className="pagebuilder-columns">
+        <div className="pagebuilder-column">
+          <h3>Seção 1</h3>
+          <p>Conteúdo da seção 1</p>
+        </div>
+        <div className="pagebuilder-column">
+          <h3>Seção 2</h3>
+          <p>Conteúdo da seção 2</p>
+        </div>
+        <div className="pagebuilder-column">
+          <h3>Seção 3</h3>
+          <p>Conteúdo da seção 3</p>
+        </div>
       </div>
     </div>
   );
