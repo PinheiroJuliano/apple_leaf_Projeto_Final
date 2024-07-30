@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -18,6 +20,15 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(express.json());
 
+// Configurar a sessão
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'default_secret', // Substitua por uma string secreta mais forte
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: uri }),
+  cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 dia
+}));
+
 // Modelo genérico para acessar a coleção 'listingsAndReviews'
 const GenericModel = mongoose.model('GenericModel', new mongoose.Schema({}, { strict: false }), 'produtos');
 
@@ -26,6 +37,7 @@ const customerSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  photo: { type: String, default: '/profilelogged.svg' }
 });
 
 const Customer = mongoose.model('Customer', customerSchema, 'customers');
@@ -99,11 +111,26 @@ app.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Senha incorreta' });
     }
 
+    // Iniciar a sessão do usuário
+    req.session.userId = customer._id;
+    req.session.username = customer.username;
+
     res.status(200).json({ message: 'Login bem-sucedido' });
   } catch (error) {
     console.error('Erro em POST /login:', error);
     res.status(500).json({ message: 'Erro no servidor' });
   }
+});
+
+// Rota para logout
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ message: 'Erro ao fazer logout' });
+    }
+
+    res.status(200).json({ message: 'Logout bem-sucedido' });
+  });
 });
 
 // Iniciar o servidor

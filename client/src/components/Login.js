@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../login.css'; // Importando o arquivo de estilo
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -23,7 +23,8 @@ const Login = () => {
 
       if (response.status === 200) {
         console.log('Login bem-sucedido:', response.data);
-        navigate('../'); // Redirecione para a página do dashboard ou outra página
+        onLogin(response.data); // Chamar a função onLogin para atualizar o estado no App
+        navigate('/');
       } else {
         setErrorMessage(response.data.message);
       }
