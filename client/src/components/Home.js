@@ -5,8 +5,9 @@ import 'swiper/css/pagination';
 import '../styles.css'; // Importando o arquivo de estilo
 import Banner from './Banner'; // Importe o componente Banner
 import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
+import CategoryList from './CategoryList'; // Importe o componente CategoryList
 
-const Home = () => {
+const Home = ({ categories, setCategories }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
 
   return (
     <div>
+      <CategoryList setCategories={setCategories} />
       <div className="search-bar-container">
         <input 
           type="text" 
@@ -61,20 +63,21 @@ const Home = () => {
       </div>
 
       {/* Seções do tipo pagebuilder-column */}
-      <div className="grid-container">
-        <div className="pagebuilder-column cell1">
-          <h3>Seção 1</h3>
-          <p>Conteúdo da seção 1</p>
+        {/* Seções do tipo pagebuilder-column */}
+        <div className="grid-container">
+          {categories.length === 0 ? (
+            <div>Carregando categorias...</div>
+          ) : (
+            categories.map((category, index) => (
+                <div 
+                  className={`cell${index}`} // Atribuindo a classe com o índice
+                  style={{ backgroundImage: `url(${category.image})` }}
+                >
+                  <h3>{category.name}</h3>
+                </div>
+            ))
+          )}
         </div>
-        <div className="pagebuilder-column cell2">
-          <h3>Seção 2</h3>
-          <p>Conteúdo da seção 2</p>
-        </div>
-        <div className="pagebuilder-column cell3">
-          <h3>Seção 3</h3>
-          <p>Conteúdo da seção 3</p>
-        </div>
-      </div>
     </div>
   );
 };

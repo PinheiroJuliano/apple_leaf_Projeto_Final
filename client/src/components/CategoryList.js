@@ -1,23 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const categories = [
-  'Electronics',
-  'Books',
-  'Clothing',
-  'Home & Kitchen',
-];
+const CategoryList = ({ setCategories }) => {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/categories');
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.error('Erro ao carregar categorias:', error);
+      }
+    };
 
-const CategoryList = () => {
-  return (
-    <div>
-      <h2>Categories</h2>
-      <ul>
-        {categories.map((category, index) => (
-          <li key={index}>{category}</li>
-        ))}
-      </ul>
-    </div>
-  );
+    fetchCategories();
+  }, [setCategories]);
+
+  return null; // Este componente não renderiza nada visivelmente
 };
 
 export default CategoryList;

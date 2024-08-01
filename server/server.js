@@ -137,3 +137,6 @@ app.post('/logout', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
+const categoriesRouter = require('./routes/categories');
+app.use('/categories', categoriesRouter);

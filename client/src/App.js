@@ -9,6 +9,7 @@ import './styles.css'; // Importando o arquivo CSS
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(null); // Estado para armazenar o usuário logado
+  const [categories, setCategories] = useState([]); // Estado para armazenar as categorias
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -21,6 +22,19 @@ const App = () => {
     if (storedUser) {
       setUser(storedUser);
     }
+
+    // Buscar categorias do backend
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/categories');
+        console.log('Categorias carregadas:', response.data); // Log para depuração
+        setCategories(response.data);
+      } catch (error) {
+        console.error('Erro ao carregar categorias:', error);
+      }
+    };
+
+    fetchCategories();
   }, []);
 
   const handleLogin = async (user) => {
@@ -78,23 +92,30 @@ const App = () => {
           <li><Link to="/login" onClick={toggleMenu}>Login</Link></li>
           <li><Link to="/register" onClick={toggleMenu}>Registrar</Link></li>
           <li className="menu-categories">
-            <span onClick={toggleMenu}>Categorias</span>
-            <ul className={`dropdown-content ${menuOpen ? 'show' : ''}`}>
-              <li><Link to="/categoria1" onClick={toggleMenu}>Categoria 1</Link></li>
-              <li><Link to="/categoria2" onClick={toggleMenu}>Categoria 2</Link></li>
-              <li><Link to="/categoria3" onClick={toggleMenu}>Categoria 3</Link></li>
+            <span>Categorias</span>
+            <ul id="lista-categorias">
+              {categories.length === 0 ? (
+                <li>Carregando...</li>
+              ) : (
+                categories.map((category) => (
+                  <li key={category._id}>
+                    <Link to={`/category/${category._id}`} onClick={toggleMenu}>
+                      {category.name || 'Nome não disponível'}
+                    </Link>
+                  </li>
+                ))
+              )}
             </ul>
           </li>
         </ul>
       </div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home categories={categories} setCategories={setCategories} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
-        {/* Adicione rotas para as categorias se necessário */}
-        <Route path="/categoria1" element={<div>Categoria 1</div>} />
-        <Route path="/categoria2" element={<div>Categoria 2</div>} />
-        <Route path="/categoria3" element={<div>Categoria 3</div>} />
+        {categories.map((category) => (
+          <Route key={category._id} path={`/category/${category._id}`} element={<div>{category.name}</div>} />
+        ))}
       </Routes>
     </div>
   );

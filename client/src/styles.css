@@ -19,7 +19,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .navbar {
   background-color: #2f5b31;
   color: white;
@@ -106,7 +105,23 @@ body {
 #lista-categorias{
   display: flex;
   flex-direction: column;
-  font-size: 0.5em;
+  font-size: 1em; /* Ajuste o tamanho da fonte conforme necessário */
+  color: white; /* Cor do texto */
+}
+
+#lista-categorias li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#lista-categorias li a {
+  text-decoration: none;
+  color: white; /* Cor do texto */
+}
+
+#lista-categorias li a:hover {
+  text-decoration: underline;
+  color: #ccc; /* Cor do texto ao passar o mouse */
 }
 
 .search-bar-container {
@@ -176,8 +191,7 @@ body {
   font-size: 14px;
   margin: 5px 0;
 }
-
-
+ 
 .menu-categories span {
   font-size: 22px; /* Maior do que as categorias individuais */
   color: var(--white);
@@ -186,7 +200,7 @@ body {
 
 .dropdown-content li a {
   font-size: 16px; /* Menor do que o texto "Categorias" */
-}
+} 
 
 
 /*BANNER*/
@@ -252,16 +266,14 @@ body {
   color: var(--cor-secundaria);
 }
 
-
-
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Duas colunas */
   grid-template-rows: auto auto; /* Duas linhas */
   grid-template-areas:
-    "cell1 cell2"
-    "cell1 cell3";
-  gap: 8px; /* Espaço entre as células */
+    "cell0 cell1"
+    "cell0 cell2";
+  gap: 0.2em;
 }
 
 .pagebuilder-columns {
@@ -271,31 +283,34 @@ body {
 }
 
 .cell1 {
-  grid-area: cell1;
+  grid-area: cell0;
   background-color: var(--cor-secundaria);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell2 {
-  grid-area: cell2;
+  grid-area: cell1;
   background-color: var(--cor-secundaria);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell3 {
-  grid-area: cell3;
+  grid-area: cell2;
   background-color: var(--cor-secundaria);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.pagebuilder-column {
-  padding: 0.2em;
-}
 
 .pagebuilder-column h3 {
-  margin-top: 0;
+  margin-top: 0.5em 0.5em;
 }
 
-.pagebuilder-column p {
-  margin: 10px 0 0;
-}
 
 @media only screen and (max-width: 1095px) {
   body {
