@@ -64,6 +64,7 @@ const Home = ({ categories, setCategories }) => {
 
       {/* Seções do tipo pagebuilder-column */}
         {/* Seções do tipo pagebuilder-column */}
+        <h2 className='categories_banner_header'>Categorias</h2>
         <div className="grid-container">
           {categories.length === 0 ? (
             <div>Carregando categorias...</div>
@@ -73,7 +74,7 @@ const Home = ({ categories, setCategories }) => {
                   className={`cell${index}`} // Atribuindo a classe com o índice
                   style={{ backgroundImage: `url(${category.image})` }}
                 >
-                  <h3>{category.name}</h3>
+                  <h3 className='categories_banner_tittle'>{category.name}</h3>
                 </div>
             ))
           )}
