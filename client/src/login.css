@@ -1,11 +1,10 @@
-/* styles.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
-:root{
+:root {
   --fonte-principal: Arial;
   --fonte-secundaria: "Playwrite DK Loopet", cursive;
   --cor-primaria: #2f5b31;
-  --cor-secundaria: #bfbfbf;
+  --cor-secundaria: #8fb575;
+  --cor-terciaria: #bfbfbf;
   --black: #090b09;
   --white: #effff2;
 }
@@ -18,10 +17,67 @@ body {
   box-sizing: border-box;
 }
 
-.login_container{
-    justify-content: right;
-    align-items: center;
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
+input{
+  height: 1.3em;
+}
+
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.login__logo {
+  height: 5em;
+}
+
+.login__texto {
+  color: var(--cor-primaria);
+}
+
+.login__form__container {
+  display: flex;
+  flex-direction: column;
+  width: 60%; /* Definindo uma largura fixa para o formulário */
+  gap: 1em; /* Espaçamento entre os elementos do formulário */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+.form-group label {
+  margin-bottom: 0.1em;
+}
+
+.botoes__container {
+  margin-top: 0.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.login__botao__clean {
+  background-color: var(--cor-terciaria);
+}
+
+.login__botao__login {
+  background-color: var(--cor-primaria);
+  color: var(--white);
+}
+
+#botao {
+  font-weight: bold;
+  width: 6em;
+  height: 2.5em;
+  border-radius: 0.8em;
+  box-shadow: none;
+  outline: none;
+  border-width: 0;
 }
