@@ -19,6 +19,18 @@ body {
   box-sizing: border-box;
 }
 
+#botao-sair{
+  border: none;
+  background: none;
+  color: var(--white);
+  padding: 0;
+  font-size: 1.2em;
+}
+.base__container{
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar {
   background-color: #2f5b31;
   color: white;
@@ -101,6 +113,41 @@ body {
   height: 30px;
   cursor: pointer;
 }
+
+.profile-menu {
+  position: absolute;
+  top: 3.36em;
+  right: 0;
+  background-color: var(--cor-secundaria);
+  border: 1px solid var(--cor-primaria);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border: none;
+  font-size: 1em;
+}
+
+.profile-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+.profile-menu ul li {
+  padding: 10px;
+}
+
+.profile-menu ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.profile-menu ul :hover{
+  background-color: var(--cor-primaria);
+  color: var(--white);
+}
+
 
 #lista-categorias{
   display: flex;
@@ -216,6 +263,7 @@ body {
 .banner__titulo{
   text-align: left;
   margin-left: 0.5em;
+  text-shadow: 1px 1px 7px black;
 }
 
 .banner-content-titulo{
@@ -247,9 +295,6 @@ body {
   height: 13em;
 }
 
-.banner-container__descricao{
-  width: 25%;
-}
 
 .banner-product-description {
   text-align: left;
@@ -259,24 +304,27 @@ body {
 .banner-product-description h3 {
   color: var(--white);
   margin: 0;
+  text-shadow: 1px 1px 7px black;
 }
 
 .banner-product-description p {
   margin: 0;
-  color: var(--cor-secundaria);
+  color: var(--white);
+  text-shadow: 1px 1px 7px black;
 }
 
 
 /*BANNER CATEGORIAS*/
 .categories_banner_header{
   margin-left: 0.5em;
+  color: var(--cor-primaria);
 }
 
 .categories_banner_tittle {
   margin-left: 0.5em;
   color: var(--white);
   position: relative;
-  text-shadow: 0.2px 0.2px 5px #2f302f;
+  text-shadow: 1px 1px 1px rgb(109, 109, 109);
  z-index: 10;
 }
 

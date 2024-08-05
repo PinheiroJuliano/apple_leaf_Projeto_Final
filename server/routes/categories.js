@@ -13,7 +13,6 @@ const Category = mongoose.model('Category', categorySchema);
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.find();
-    console.log(categories);
     res.status(200).json(categories);
   } catch (error) {
     console.error('Erro ao obter categorias:', error);

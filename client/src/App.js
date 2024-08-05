@@ -10,10 +10,15 @@ const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(null); // Estado para armazenar o usuário logado
   const [categories, setCategories] = useState([]); // Estado para armazenar as categorias
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false); // Estado para o menu do profile
   const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleProfileMenu = () => {
+    setProfileMenuOpen(!profileMenuOpen);
   };
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className='base__container'>
       <nav className="navbar">
         <div className="nav-left">
           <div className="menu-hamburger" onClick={toggleMenu}>
@@ -78,19 +83,42 @@ const App = () => {
                 src={user.photo || '/profilelogged.svg'} 
                 alt="Profile" 
                 className="profile-icon" 
+                onClick={toggleProfileMenu}
               />
-              <button onClick={handleLogout}>Logout</button>
+              {profileMenuOpen && (
+                <div className="profile-menu">
+                  <ul>
+                    <li><Link to="/" id='botao-sair'>Meu Perfil</Link></li>
+                    <li><Link to="/" id='botao-sair'>Pedidos</Link></li>
+                    <li><Link to="/" id='botao-sair'>Configurações</Link></li>
+                    <li><button onClick={handleLogout} id='botao-sair'>Sair</button></li>
+                  </ul>
+                </div>
+              )}
             </>
           ) : (
-            <img src="/profile.svg" alt="Profile" className="profile-icon" />
+            <>
+              <img 
+                src="/profile.svg" 
+                alt="Profile" 
+                className="profile-icon" 
+                onClick={toggleProfileMenu}
+              />
+              {profileMenuOpen && (
+                <div className="profile-menu">
+                  <ul>
+                    <li><Link to="/login" onClick={toggleProfileMenu}>Login</Link></li>
+                    <li><Link to="/register" onClick={toggleProfileMenu}>Registrar</Link></li>
+                  </ul>
+                </div>
+              )}
+            </>
           )}
         </div>
       </nav>
       <div className={`menu-expandable ${menuOpen ? 'open' : ''}`}>
         <ul>
           <li><Link to="/" onClick={toggleMenu}>Início</Link></li>
-          <li><Link to="/login" onClick={toggleMenu}>Login</Link></li>
-          <li><Link to="/register" onClick={toggleMenu}>Registrar</Link></li>
           <li className="menu-categories">
             <span>Categorias</span>
             <ul id="lista-categorias">

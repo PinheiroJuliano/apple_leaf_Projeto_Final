@@ -34,34 +34,39 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  const handleClear = () => {
+    setEmail('');
+    setPassword('');
+    setErrorMessage('');
+  };
+
   return (
     <div className='login_container'>
       <img src="/logo.svg" alt="Logo" className='login__logo'></img> 
       <h2 className='login__texto'>Apple Leaf</h2>
       <div className='login__form__container'>
         <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Email:</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='Email'
-                autofocus
-              />
-            </div>
-            <div className="form-group">
-              <label>Senha:</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder='Senha'
-              />
-              
-            </div>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Email'
+              autoFocus
+            />
+          </div>
+          <div className="form-group">
+            <label>Senha:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder='Senha'
+            />
+          </div>
           <div className='botoes__container'>
-            <button type="reset" className='login__botao__clean' id='botao'>Limpar</button>
+            <button type="button" className='login__botao__clean' id='botao' onClick={handleClear}>Limpar</button>
             <button type="submit" className='login__botao__login' id='botao'>Entrar</button>
           </div>
         </form>

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+:root {
+  --fonte-principal: Arial;
+  --fonte-secundaria: "Playwrite DK Loopet", cursive;
+  --cor-primaria: #2f5b31;
+  --cor-primaria-variavel: #EB713B;
+  --cor-secundaria: #8fb575;
+  --cor-terciaria: #bfbfbf;
+  --black: #090b09;
+  --white: #effff2;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+  }
+
+input{
+    height: 1.3em;
+ }
+
+.register__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.register__form__container{
+    display: flex;
+    flex-direction: column;
+    width: 60%; /* Definindo uma largura fixa para o formulário */
+    gap: 1em; /* Espaçamento entre os elementos do formulário */
+    align-items: center;
+}
+
+.botao__register{
+    background-color: var(--cor-primaria);
+    color: var(--white);
+}
+
+.botao__clean {
+    background-color: var(--cor-terciaria);
+  }
+
+.botao__register:hover{
+    background-color: var(--cor-primaria-variavel);
+    color: var(--white);
+}
+
+.botao__clean:hover{
+    background-color: grey;
+    color: var(--white);
+}

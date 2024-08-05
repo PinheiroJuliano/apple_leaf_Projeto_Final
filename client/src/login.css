@@ -3,6 +3,7 @@
   --fonte-principal: Arial;
   --fonte-secundaria: "Playwrite DK Loopet", cursive;
   --cor-primaria: #2f5b31;
+  --cor-primaria-variavel: #EB713B;
   --cor-secundaria: #8fb575;
   --cor-terciaria: #bfbfbf;
   --black: #090b09;
@@ -43,12 +44,15 @@ input{
   flex-direction: column;
   width: 60%; /* Definindo uma largura fixa para o formulário */
   gap: 1em; /* Espaçamento entre os elementos do formulário */
+  align-items: center;
 }
+
 
 .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5em;
+  max-width: 25em;
 }
 
 .form-group label {
@@ -72,11 +76,15 @@ input{
   color: var(--white);
 }
 
+.login__botao__login:hover {
+  background-color: var(--cor-primaria-variavel);
+  color: var(--white);
+}
+
 #botao {
   font-weight: bold;
   width: 6em;
   height: 2.5em;
-  border-radius: 0.8em;
   box-shadow: none;
   outline: none;
   border-width: 0;

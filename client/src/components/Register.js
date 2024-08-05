@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles.css'; // Importando o arquivo de estilo
+import '../register.css'; // Importando o arquivo de estilo
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -38,36 +38,52 @@ const Register = () => {
     }
   };
 
+  const handleClear = () => {
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setSuccessMessage('');
+  };
+
   return (
-    <div>
-      <h2>Register</h2>
+    <div className='register__container'>
+      <img src="/logo.svg" alt="Logo" className='login__logo'></img> 
+      <h2 className='login__texto'>Apple Leaf</h2>
+      <div className='register__form__container'>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
+        <div className="form-group">
+          <label>Usuário:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            placeholder='Usuário'
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder='Email'
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="form-group">
+          <label>Senha:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder='Senha'
           />
         </div>
-        <button type="submit">Register</button>
+        <div className='botoes__container'>
+            <button type="button" className='botao__clean' id='botao' onClick={handleClear}>Limpar</button>
+            <button type="submit" className='botao__register' id='botao'>Registrar</button>
+        </div>
       </form>
+      </div>
       {successMessage && <p>{successMessage}</p>}
     </div>
   );
