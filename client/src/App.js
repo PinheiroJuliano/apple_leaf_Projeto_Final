@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -12,6 +12,7 @@ const App = () => {
   const [categories, setCategories] = useState([]); // Estado para armazenar as categorias
   const [profileMenuOpen, setProfileMenuOpen] = useState(false); // Estado para o menu do profile
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -20,6 +21,11 @@ const App = () => {
   const toggleProfileMenu = () => {
     setProfileMenuOpen(!profileMenuOpen);
   };
+
+  useEffect(() => {
+    // Fechar o menu de perfil ao mudar de página
+    setProfileMenuOpen(false);
+  }, [location]);
 
   useEffect(() => {
     // Verificar se há um usuário logado armazenado no localStorage ou sessão
