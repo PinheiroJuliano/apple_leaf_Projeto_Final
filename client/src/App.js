@@ -77,7 +77,7 @@ const App = () => {
         <div className="nav-left">
           <div className="menu-hamburger" onClick={toggleMenu}>
             <img 
-              src={menuOpen ? "/close.svg" : "/menu.svg"} 
+              src={menuOpen ? '/close.svg' : '/menu.svg'} 
               alt="Menu" 
               className={`hamburger-icon ${menuOpen ? 'open' : ''}`} 
             />
