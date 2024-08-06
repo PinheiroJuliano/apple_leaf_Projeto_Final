@@ -4,6 +4,7 @@ import axios from 'axios';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import CategoryPage from './components/CategoryPage'; // Importa o novo componente
 import './styles.css'; // Importando o arquivo CSS
 
 const App = () => {
@@ -133,7 +134,7 @@ const App = () => {
               ) : (
                 categories.map((category) => (
                   <li key={category._id}>
-                    <Link to={`/category/${category._id}`} onClick={toggleMenu}>
+                    <Link to={`/${category.name}`} onClick={toggleMenu}>
                       {category.name || 'Nome não disponível'}
                     </Link>
                   </li>
@@ -147,9 +148,7 @@ const App = () => {
         <Route path="/" element={<Home categories={categories} setCategories={setCategories} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
-        {categories.map((category) => (
-          <Route key={category._id} path={`/category/${category._id}`} element={<div>{category.name}</div>} />
-        ))}
+        <Route path="/:categoryName" element={<CategoryPage />} />
       </Routes>
     </div>
   );

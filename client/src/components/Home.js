@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../styles.css'; // Importando o arquivo de estilo
@@ -63,22 +64,23 @@ const Home = ({ categories, setCategories }) => {
       </div>
 
       {/* Seções do tipo pagebuilder-column */}
-        {/* Seções do tipo pagebuilder-column */}
-        <h2 className='categories_banner_header'>Categorias</h2>
-        <div className="grid-container">
-          {categories.length === 0 ? (
-            <div>Carregando categorias...</div>
-          ) : (
-            categories.map((category, index) => (
-                <div 
-                  className={`cell${index}`} // Atribuindo a classe com o índice
-                  style={{ backgroundImage: `url(${category.image})` }}
-                >
-                  <h3 className='categories_banner_tittle'>{category.name}</h3>
-                </div>
-            ))
-          )}
-        </div>
+      <h2 className='categories_banner_header'>Categorias</h2>
+      <div className="grid-container">
+        {categories.length === 0 ? (
+          <div>Carregando categorias...</div>
+        ) : (
+          categories.map((category, index) => (
+            <Link to={`/${category.name}`} key={index} className={`cell cell${index}`}>
+              <div 
+                className={`cell cell${index}`} // Atribuindo a classe com o índice
+                style={{ backgroundImage: `url(${category.image})` }}
+              >
+                <h3 className='categories_banner_tittle'>{category.name}</h3>
+              </div>
+            </Link>
+          ))
+        )}
+      </div>
     </div>
   );
 };

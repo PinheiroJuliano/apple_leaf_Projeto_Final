@@ -3,7 +3,13 @@ import axios from 'axios';
 
 const fetchProducts = async (filters = {}) => {
   try {
-    const response = await axios.get('http://localhost:3001/produtos'); // Certifique-se de usar a URL correta
+    // Construa a URL com base nos filtros
+    let url = 'http://localhost:3001/produtos';
+    if (filters.category) {
+      url += `?category=${encodeURIComponent(filters.category)}`;
+    }
+    
+    const response = await axios.get(url);
     console.log('Dados recebidos da API:', response.data); // Log para depuração
 
     // Filtrar os produtos com base nos filtros passados
@@ -21,4 +27,3 @@ const fetchProducts = async (filters = {}) => {
 };
 
 export default fetchProducts;
-

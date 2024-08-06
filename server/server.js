@@ -60,17 +60,27 @@ app.post('/items', async (req, res) => {
   }
 });
 
-// Rota para obter todos os itens da coleção 'listingsAndReviews'
+// Rota para obter todos os produtos filtrados pela categoria
 app.get('/produtos', async (req, res) => {
   try {
-    console.log('Recebendo GET /produtos');
-    const items = await GenericModel.find();
+    console.log('Recebendo GET /produtos com filtros:', req.query);
+    const { category } = req.query; // Obtém o parâmetro da categoria da query string
+
+    let filter = {}; // Inicializa um filtro vazio
+
+    if (category) {
+      filter.category = category; // Adiciona o filtro para categoria se fornecido
+    }
+
+    const items = await GenericModel.find(filter); // Aplica o filtro na consulta
     res.status(200).json(items);
   } catch (error) {
     console.error('Erro em GET /produtos:', error);
     res.status(500).json({ message: error.message });
   }
 });
+
+
 
 // Rota para registrar um novo usuário na coleção 'customers'
 app.post('/register', async (req, res) => {

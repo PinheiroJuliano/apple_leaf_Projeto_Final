@@ -325,7 +325,7 @@ body {
   color: var(--white);
   position: relative;
   text-shadow: 1px 1px 1px rgb(109, 109, 109);
- z-index: 10;
+  z-index: 10;
 }
 
 .grid-container {
@@ -335,7 +335,7 @@ body {
   grid-template-areas:
     "cell0 cell1"
     "cell0 cell2";
-  gap: 0.2em;
+  gap: 0.1em;
 }
 
 .cell0 {
@@ -344,6 +344,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 12em;
+  text-decoration: none;
 }
 
 .cell1 {
@@ -352,6 +353,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 6em;
+  text-decoration: none;
 }
 
 .cell2 {
@@ -360,6 +362,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 6em;
+  text-decoration: none;
 }
 
 .pagebuilder-columns {
