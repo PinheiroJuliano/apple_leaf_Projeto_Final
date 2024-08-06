@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
 :root {
-  --fonte-principal: Arial;
+  --fonte-principal: arial;
   --fonte-secundaria: "Playwrite DK Loopet", cursive;
   --cor-primaria: #2f5b31;
   --cor-primaria-variavel: #EB713B;

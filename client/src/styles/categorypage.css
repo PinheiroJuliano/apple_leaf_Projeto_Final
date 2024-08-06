@@ -1,0 +1,129 @@
+/* src/styles/categorypage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
+:root {
+  --fonte-principal: arial;
+  --fonte-secundaria: "Playwrite DK Loopet", cursive;
+  --cor-primaria: #2f5b31;
+  --cor-primaria-variavel: #EB713B;
+  --cor-secundaria: #8fb575;
+  --cor-terciaria: #bfbfbf;
+  --black: #090b09;
+  --white: #effff2;
+}
+
+.category-page {
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.8em;
+  column-gap: 1em;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.6em;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  height: 100%;
+  transition: transform 0.3s ease; /* Transição suave para a transformação */
+}
+
+.product-card.clicked {
+  transform: scale(1.02); /* Aplica a transformação quando o card está clicado */
+}
+
+/* Estilo para dispositivos móveis */
+@media only screen and (width <= 768px) {
+  .product-card.clicked .product-price {
+    background-color: var(--cor-primaria-variavel);
+    border-bottom: 4px var(--black) solid;
+  }
+
+  .product-card.clicked .product-price .buy-text {
+    left: 10px;
+    opacity: 1;
+  }
+
+  .product-card.clicked .product-price .price-value {
+    opacity: 0;
+  }
+  
+  .product-card:hover {
+    transform: none; /* Remove o efeito de hover em dispositivos móveis */
+  }
+}
+
+/* Estilo para desktops */
+@media only screen and (width >= 769px) {
+  .product-card:hover {
+    transform: scale(1.02); /* Aplica a transformação ao passar o mouse em desktops */
+  }
+
+  .product-card.clicked {
+    transform: none; /* Remove a transformação ao clicar em desktops */
+  }
+  
+  .product-price:hover {
+    background-color: var(--cor-primaria-variavel);
+    border-bottom: 4px var(--black) solid;
+  }
+
+  .product-price:hover .buy-text {
+    left: 10px;
+    opacity: 1;
+  }
+
+  .product-price:hover .price-value {
+    opacity: 0;
+  }
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.product-name {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.product-price {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 0.7em;
+  font-size: 1em;
+  color: var(--white);
+  background-color: var(--cor-primaria);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Faz o botão ser empurrado para o fundo do card */
+  border: none;
+}
+
+.product-price .price-value {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.product-price .buy-text {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: left 0.3s ease, opacity 0.3s ease;
+  font-weight: bold;
+}

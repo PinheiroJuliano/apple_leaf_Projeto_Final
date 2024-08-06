@@ -1,6 +1,6 @@
 // Banner.js
 import React from 'react';
-import '../styles.css'; // Importando o arquivo de estilo
+import '../styles/styles.css';
 
 const Banner = () => {
   return (

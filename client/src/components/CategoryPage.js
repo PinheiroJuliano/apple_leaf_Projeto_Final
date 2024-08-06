@@ -1,35 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Importa useParams
-import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
-import '../categorypage.css'; // Importando o arquivo de estilo
+import { useParams } from 'react-router-dom';
+import fetchProducts from './fetchProducts';
+import '../styles/categorypage.css';
 
 const CategoryPage = () => {
-  const { categoryName } = useParams(); // Obtém o parâmetro da URL
+  const { categoryName } = useParams();
   const [products, setProducts] = useState([]);
+  const [clickedCard, setClickedCard] = useState(null);
 
   useEffect(() => {
-    // Buscar produtos da categoria
     const loadProducts = async () => {
       const productsList = await fetchProducts({ category: categoryName });
       setProducts(productsList);
     };
 
     loadProducts();
-  }, [categoryName]); // Dependência para recarregar os produtos se a categoria mudar
+  }, [categoryName]);
+
+  const handleCardClick = (id) => {
+    setClickedCard((prevClickedCard) => (prevClickedCard === id ? null : id));
+  };
 
   return (
     <div className='category-page'>
       <h1>Categoria: {categoryName}</h1>
       <div className='product-grid'>
         {products.map((product) => (
-          <div key={product._id} className='product-card'>
+          <div
+            key={product._id}
+            className={`product-card ${clickedCard === product._id ? 'clicked' : ''}`}
+            onClick={() => handleCardClick(product._id)}
+          >
             <img
               className='product-image'
               src={product.image}
               alt={product.name}
             />
-            <h3 className='product-name '>{product.name}</h3>
-            <p className='product-price'>R$ {product.price.toFixed(2)}</p>
+            <h3 className='product-name'>{product.name}</h3>
+            <button className='product-price'>
+              <span className='price-value'>R$ {product.price.toFixed(2)}</span>
+              <span className='buy-text'>Comprar</span>
+            </button>
           </div>
         ))}
       </div>

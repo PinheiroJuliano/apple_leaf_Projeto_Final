@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import '../styles.css'; // Importando o arquivo de estilo
+import '../styles/styles.css'; // Importando o arquivo de estilo
 import Banner from './Banner'; // Importe o componente Banner
 import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
 import CategoryList from './CategoryList'; // Importe o componente CategoryList

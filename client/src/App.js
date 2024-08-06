@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import CategoryPage from './components/CategoryPage'; // Importa o novo componente
-import './styles.css'; // Importando o arquivo CSS
+import './styles/styles.css';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);

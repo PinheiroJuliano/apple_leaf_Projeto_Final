@@ -8,7 +8,8 @@
         "client": "cd client && npm start",
         "lint": "eslint \"**/*.js\"",
         "lint:fix": "eslint \"**/*.js\" --fix",
-        "format": "prettier --write \"**/*.js\""
+        "format": "prettier --write \"**/*.js\"",
+        "lint:css": "stylelint \"**/*.css\" --fix"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.25.1",
@@ -18,7 +19,9 @@
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.2.1",
         "eslint-plugin-react": "^7.35.0",
-        "prettier": "^3.3.3"
+        "prettier": "^3.3.3",
+        "stylelint": "^16.8.1",
+        "stylelint-config-standard": "^36.0.1"
     },
     "prettier": {
         "useTabs": false,

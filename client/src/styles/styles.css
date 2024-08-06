@@ -1,8 +1,9 @@
 /* styles.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
 :root{
-  --fonte-principal: Arial;
+  --fonte-principal: arial;
   --fonte-secundaria: "Playwrite DK Loopet", cursive;
   --cor-primaria: #2f5b31;
   --cor-secundaria: #71915c;
@@ -26,6 +27,7 @@ body {
   padding: 0;
   font-size: 1.2em;
 }
+
 .base__container{
   display: flex;
   flex-direction: column;
@@ -119,8 +121,7 @@ body {
   top: 3.36em;
   right: 0;
   background-color: var(--cor-secundaria);
-  border: 1px solid var(--cor-primaria);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
   z-index: 1000;
   border: none;
   font-size: 1em;
@@ -250,10 +251,10 @@ body {
 } 
 
 
-/*BANNER*/
+/* BANNER */
 
 .banner {
-  background-image: url('../public/banner-bg2.jpg');
+  background-image: url('../assets/banner-bg2.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -271,13 +272,12 @@ body {
 }
 
 .banner-content {
-  justify-items: center;
-  align-items: center;
+  place-items: center center;
   text-align: left;
   color: white; /* Ajuste a cor do texto conforme necessário */
   display: flex;
   flex-direction: row;
-  margin: 0em 20em 0 20em;
+  margin: 0 20em;
 }
 
 .banner-content-img-wrapper{
@@ -314,7 +314,7 @@ body {
 }
 
 
-/*BANNER CATEGORIAS*/
+/* BANNER CATEGORIAS */
 .categories_banner_header{
   margin-left: 0.5em;
   color: var(--cor-primaria);
@@ -324,17 +324,13 @@ body {
   margin-left: 0.5em;
   color: var(--white);
   position: relative;
-  text-shadow: 1px 1px 1px rgb(109, 109, 109);
+  text-shadow: 1px 1px 1px rgb(109 109 109);
   z-index: 10;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Duas colunas */
-  grid-template-rows: auto auto; /* Duas linhas */
-  grid-template-areas:
-    "cell0 cell1"
-    "cell0 cell2";
+  grid-template: "cell0 cell1" auto "cell0 cell2" auto / 1fr 1fr; /* Duas colunas */ /* Duas linhas */
   gap: 0.1em;
 }
 
@@ -373,23 +369,22 @@ body {
 
 
 
-@media only screen and (max-width: 1095px) {
+@media only screen and (width <= 1095px) {
   body {
-    background-color: rgb(238, 245, 219);
+    background-color: rgb(238 245 219);
   }
 
   .banner-content {
-    justify-items: center;
-    align-items: center;
+    place-items: center center;
     text-align: left;
     color: white; /* Ajuste a cor do texto conforme necessário */
     display: flex;
     flex-direction: column;
-    margin: 0em 1em 0 1em;
+    margin: 0 1em;
   }  
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width <= 768px) {
   .grid-container {
     display: flex;
     flex-direction: column;
