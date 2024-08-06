@@ -21,10 +21,15 @@ const Register = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3001/register', customerData);
+      const response = await axios.post(
+        'http://localhost:3001/register',
+        customerData,
+      );
 
       if (response.status === 201) {
-        setSuccessMessage('Registro bem-sucedido! Redirecionando para a página de login...');
+        setSuccessMessage(
+          'Registro bem-sucedido! Redirecionando para a página de login...',
+        );
         setTimeout(() => {
           navigate('/login');
         }, 2000); // Redireciona após 2 segundos
@@ -47,40 +52,49 @@ const Register = () => {
 
   return (
     <div className='register__container'>
-      <img src="/logo.svg" alt="Logo" className='login__logo'></img> 
+      <img src='/logo.svg' alt='Logo' className='login__logo'></img>
       <h2 className='login__texto'>Apple Leaf</h2>
       <div className='register__form__container'>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className='form-group'>
             <label>Usuário:</label>
             <input
-              type="text"
+              type='text'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder='Usuário'
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <label>Email:</label>
             <input
-              type="email"
+              type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Email'
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <label>Senha:</label>
             <input
-              type="password"
+              type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder='Senha'
             />
           </div>
           <div className='botoes__container'>
-            <button type="button" className='botao__clean' id='botao' onClick={handleClear}>Limpar</button>
-            <button type="submit" className='botao__register' id='botao'>Registrar</button>
+            <button
+              type='button'
+              className='botao__clean'
+              id='botao'
+              onClick={handleClear}
+            >
+              Limpar
+            </button>
+            <button type='submit' className='botao__register' id='botao'>
+              Registrar
+            </button>
           </div>
         </form>
       </div>

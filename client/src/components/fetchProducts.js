@@ -8,7 +8,7 @@ const fetchProducts = async (filters = {}) => {
     if (filters.category) {
       url += `?category=${encodeURIComponent(filters.category)}`;
     }
-    
+
     const response = await axios.get(url);
     console.log('Dados recebidos da API:', response.data); // Log para depuração
 
@@ -16,7 +16,9 @@ const fetchProducts = async (filters = {}) => {
     let filteredProducts = response.data;
 
     if (filters.destaque) {
-      filteredProducts = filteredProducts.filter(produto => produto.destaque === filters.destaque);
+      filteredProducts = filteredProducts.filter(
+        (produto) => produto.destaque === filters.destaque,
+      );
     }
 
     return filteredProducts;

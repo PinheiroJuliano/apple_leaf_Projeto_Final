@@ -5,7 +5,10 @@
     "scripts": {
         "start": "concurrently \"npm run server\" \"npm run client\"",
         "server": "cd server && npm start",
-        "client": "cd client && npm start"
+        "client": "cd client && npm start",
+        "lint": "eslint \"**/*.js\"",
+        "lint:fix": "eslint \"**/*.js\" --fix",
+        "format": "prettier --write \"**/*.js\""
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.25.1",

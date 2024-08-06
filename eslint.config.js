@@ -6,24 +6,24 @@ module.exports = [
     languageOptions: {
       globals: {
         browser: 'readonly',
-        es2021: 'readonly'
+        es2021: 'readonly',
       },
       parser: babelParser,
       parserOptions: {
         requireConfigFile: false, // Desativar a verificação do arquivo de configuração do Babel
         babelOptions: {
           presets: ['@babel/preset-react'], // Adiciona o preset do React para reconhecer JSX
-          plugins: []
+          plugins: [],
         },
         ecmaFeatures: {
-          jsx: true
+          jsx: true,
         },
         ecmaVersion: 12,
-        sourceType: 'module'
-      }
+        sourceType: 'module',
+      },
     },
     plugins: {
-      react: reactPlugin
+      react: reactPlugin,
     },
     rules: {
       semi: ['error', 'always'],
@@ -32,7 +32,7 @@ module.exports = [
       'no-unused-vars': 'warn',
       'no-console': 'warn',
       'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error'
-    }
-  }
+      'react/jsx-uses-vars': 'error',
+    },
+  },
 ];

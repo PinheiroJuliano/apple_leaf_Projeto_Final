@@ -24,21 +24,19 @@ const Home = ({ categories, setCategories }) => {
   return (
     <div>
       <CategoryList setCategories={setCategories} />
-      <div className="search-bar-container">
-        <input 
-          type="text" 
-          className="search-bar" 
-          placeholder="O que você procura hoje?" 
+      <div className='search-bar-container'>
+        <input
+          type='text'
+          className='search-bar'
+          placeholder='O que você procura hoje?'
         />
-        <img 
-          className="search-icon" 
-          src="/search.svg" 
-          alt="Buscar" 
-        />
+        <img className='search-icon' src='/search.svg' alt='Buscar' />
       </div>
       <Banner />
-      <div className="highlights-section">
-        <h2 className="highlights-tittle" id="tittle">Destaques</h2>
+      <div className='highlights-section'>
+        <h2 className='highlights-tittle' id='tittle'>
+          Destaques
+        </h2>
         <Swiper
           spaceBetween={0} // Espaço entre os slides
           slidesPerView={1} // Quantidade de slides visíveis ao mesmo tempo
@@ -53,7 +51,7 @@ const Home = ({ categories, setCategories }) => {
         >
           {products.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="highlight-item"> 
+              <div className='highlight-item'>
                 <img src={product.image} alt={product.name} />
                 <p>{product.name}</p>
                 <p>R$ {product.price.toFixed(2)}</p>
@@ -65,13 +63,17 @@ const Home = ({ categories, setCategories }) => {
 
       {/* Seções do tipo pagebuilder-column */}
       <h2 className='categories_banner_header'>Categorias</h2>
-      <div className="grid-container">
+      <div className='grid-container'>
         {categories.length === 0 ? (
           <div>Carregando categorias...</div>
         ) : (
           categories.map((category, index) => (
-            <Link to={`/${category.name}`} key={index} className={`cell cell${index}`}>
-              <div 
+            <Link
+              to={`/${category.name}`}
+              key={index}
+              className={`cell cell${index}`}
+            >
+              <div
                 className={`cell cell${index}`} // Atribuindo a classe com o índice
                 style={{ backgroundImage: `url(${category.image})` }}
               >

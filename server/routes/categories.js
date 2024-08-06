@@ -3,9 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 // Defina o modelo de Categoria (ajuste conforme necessário)
-const categorySchema = new mongoose.Schema({
-  name: { type: String, required: true }
-}, { collection: 'categorias' });
+const categorySchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+  },
+  { collection: 'categorias' },
+);
 
 const Category = mongoose.model('Category', categorySchema);
 

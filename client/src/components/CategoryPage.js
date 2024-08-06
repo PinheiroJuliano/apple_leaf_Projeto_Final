@@ -20,10 +20,14 @@ const CategoryPage = () => {
   return (
     <div className='category-page'>
       <h1>Categoria: {categoryName}</h1>
-      <div className="product-grid">
+      <div className='product-grid'>
         {products.map((product) => (
-          <div key={product._id} className="product-card">
-            <img className='product-image' src={product.image} alt={product.name} />
+          <div key={product._id} className='product-card'>
+            <img
+              className='product-image'
+              src={product.image}
+              alt={product.name}
+            />
             <h3 className='product-name '>{product.name}</h3>
             <p className='product-price'>R$ {product.price.toFixed(2)}</p>
           </div>

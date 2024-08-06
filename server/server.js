@@ -14,30 +14,37 @@ app.use(cors());
 const uri = process.env.MONGODB_URI;
 
 // Conectar ao MongoDB usando Mongoose
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conectado ao MongoDB!'))
-  .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
+  .catch((err) => console.error('Erro ao conectar ao MongoDB:', err));
 
 app.use(express.json());
 
 // Configurar a sessão
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'default_secret', // Substitua por uma string secreta mais forte
-  resave: false,
-  saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: uri }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 dia
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'default_secret', // Substitua por uma string secreta mais forte
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: uri }),
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 dia
+  }),
+);
 
 // Modelo genérico para acessar a coleção 'listingsAndReviews'
-const GenericModel = mongoose.model('GenericModel', new mongoose.Schema({}, { strict: false }), 'produtos');
+const GenericModel = mongoose.model(
+  'GenericModel',
+  new mongoose.Schema({}, { strict: false }),
+  'produtos',
+);
 
 // Modelo para a coleção 'customers'
 const customerSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  photo: { type: String, default: '/profilelogged.svg' }
+  photo: { type: String, default: '/profilelogged.svg' },
 });
 
 const Customer = mongoose.model('Customer', customerSchema, 'customers');
@@ -79,8 +86,6 @@ app.get('/produtos', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-
 
 // Rota para registrar um novo usuário na coleção 'customers'
 app.post('/register', async (req, res) => {
@@ -134,7 +139,7 @@ app.post('/login', async (req, res) => {
 
 // Rota para logout
 app.post('/logout', (req, res) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ message: 'Erro ao fazer logout' });
     }

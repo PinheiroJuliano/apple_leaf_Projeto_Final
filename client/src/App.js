@@ -73,49 +73,73 @@ const App = () => {
 
   return (
     <div className='base__container'>
-      <nav className="navbar">
-        <div className="nav-left">
-          <div className="menu-hamburger" onClick={toggleMenu}>
-            <img 
-              src={menuOpen ? '/close.svg' : '/menu.svg'} 
-              alt="Menu" 
-              className={`hamburger-icon ${menuOpen ? 'open' : ''}`} 
+      <nav className='navbar'>
+        <div className='nav-left'>
+          <div className='menu-hamburger' onClick={toggleMenu}>
+            <img
+              src={menuOpen ? '/close.svg' : '/menu.svg'}
+              alt='Menu'
+              className={`hamburger-icon ${menuOpen ? 'open' : ''}`}
             />
           </div>
         </div>
-        <div className="nav-right">
+        <div className='nav-right'>
           {user ? (
             <>
-              <img 
-                src={user.photo || '/profilelogged.svg'} 
-                alt="Profile" 
-                className="profile-icon" 
+              <img
+                src={user.photo || '/profilelogged.svg'}
+                alt='Profile'
+                className='profile-icon'
                 onClick={toggleProfileMenu}
               />
               {profileMenuOpen && (
-                <div className="profile-menu">
+                <div className='profile-menu'>
                   <ul>
-                    <li><Link to="/" id='botao-sair'>Meu Perfil</Link></li>
-                    <li><Link to="/" id='botao-sair'>Pedidos</Link></li>
-                    <li><Link to="/" id='botao-sair'>Configurações</Link></li>
-                    <li><button onClick={handleLogout} id='botao-sair'>Sair</button></li>
+                    <li>
+                      <Link to='/' id='botao-sair'>
+                        Meu Perfil
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' id='botao-sair'>
+                        Pedidos
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' id='botao-sair'>
+                        Configurações
+                      </Link>
+                    </li>
+                    <li>
+                      <button onClick={handleLogout} id='botao-sair'>
+                        Sair
+                      </button>
+                    </li>
                   </ul>
                 </div>
               )}
             </>
           ) : (
             <>
-              <img 
-                src="/profile.svg" 
-                alt="Profile" 
-                className="profile-icon" 
+              <img
+                src='/profile.svg'
+                alt='Profile'
+                className='profile-icon'
                 onClick={toggleProfileMenu}
               />
               {profileMenuOpen && (
-                <div className="profile-menu">
+                <div className='profile-menu'>
                   <ul>
-                    <li><Link to="/login" onClick={toggleProfileMenu}>Login</Link></li>
-                    <li><Link to="/register" onClick={toggleProfileMenu}>Registrar</Link></li>
+                    <li>
+                      <Link to='/login' onClick={toggleProfileMenu}>
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/register' onClick={toggleProfileMenu}>
+                        Registrar
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               )}
@@ -125,10 +149,14 @@ const App = () => {
       </nav>
       <div className={`menu-expandable ${menuOpen ? 'open' : ''}`}>
         <ul>
-          <li><Link to="/" onClick={toggleMenu}>Início</Link></li>
-          <li className="menu-categories">
+          <li>
+            <Link to='/' onClick={toggleMenu}>
+              Início
+            </Link>
+          </li>
+          <li className='menu-categories'>
             <span>Categorias</span>
-            <ul id="lista-categorias">
+            <ul id='lista-categorias'>
               {categories.length === 0 ? (
                 <li>Carregando...</li>
               ) : (
@@ -145,10 +173,15 @@ const App = () => {
         </ul>
       </div>
       <Routes>
-        <Route path="/" element={<Home categories={categories} setCategories={setCategories} />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/:categoryName" element={<CategoryPage />} />
+        <Route
+          path='/'
+          element={
+            <Home categories={categories} setCategories={setCategories} />
+          }
+        />
+        <Route path='/login' element={<Login onLogin={handleLogin} />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/:categoryName' element={<CategoryPage />} />
       </Routes>
     </div>
   );
