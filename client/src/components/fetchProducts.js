@@ -3,19 +3,26 @@ import axios from 'axios';
 
 const fetchProducts = async (filters = {}) => {
   try {
-    // Construa a URL com base nos filtros
     let url = 'http://localhost:3001/produtos';
+    const params = new URLSearchParams();
+
     if (filters.category) {
-      url += `?category=${encodeURIComponent(filters.category)}`;
+      params.append('category', filters.category);
     }
 
-    const response = await axios.get(url);
-    console.log('Dados recebidos da API:', response.data); // Log para depuração
+    // Adiciona a string de consulta (query string) apenas se houver parâmetros
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
 
-    // Filtrar os produtos com base nos filtros passados
+    console.log('URL da API:', url); // Log para verificação
+
+    const response = await axios.get(url);
+    console.log('Dados recebidos da API:', response.data); // Log para verificação
+
     let filteredProducts = response.data;
 
-    if (filters.destaque) {
+    if (filters.destaque !== undefined) {
       filteredProducts = filteredProducts.filter(
         (produto) => produto.destaque === filters.destaque,
       );

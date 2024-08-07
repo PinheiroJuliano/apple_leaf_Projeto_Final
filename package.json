@@ -2,6 +2,7 @@
     "name": "my-project",
     "version": "1.0.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "start": "concurrently \"npm run server\" \"npm run client\"",
         "server": "cd server && npm start",

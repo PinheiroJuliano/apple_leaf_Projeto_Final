@@ -21,6 +21,11 @@ const Home = ({ categories, setCategories }) => {
     loadProducts();
   }, []); // Executa apenas na montagem do componente
 
+  const handleShowAll = () => {
+    // Redireciona para a rota de categoria "Todos"
+    window.location.href = '/Todos';
+  };
+
   return (
     <div>
       <CategoryList setCategories={setCategories} />
@@ -72,6 +77,7 @@ const Home = ({ categories, setCategories }) => {
               to={`/${category.name}`}
               key={index}
               className={`cell cell${index}`}
+              id='cell'
             >
               <div
                 className={`cell cell${index}`} // Atribuindo a classe com o índice
@@ -83,6 +89,9 @@ const Home = ({ categories, setCategories }) => {
           ))
         )}
       </div>
+      <button onClick={handleShowAll} className='show-all-button'>
+        Mostrar todas
+      </button>
     </div>
   );
 };

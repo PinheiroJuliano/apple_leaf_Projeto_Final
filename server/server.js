@@ -75,8 +75,8 @@ app.get('/produtos', async (req, res) => {
 
     let filter = {}; // Inicializa um filtro vazio
 
-    if (category) {
-      filter.category = category; // Adiciona o filtro para categoria se fornecido
+    if (category && category !== 'Todos') {
+      filter.category = category; // Adiciona o filtro para categoria se fornecido e não for "Todos"
     }
 
     const items = await GenericModel.find(filter); // Aplica o filtro na consulta

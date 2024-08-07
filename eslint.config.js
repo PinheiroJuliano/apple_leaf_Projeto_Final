@@ -1,7 +1,7 @@
-const reactPlugin = require('eslint-plugin-react');
-const babelParser = require('@babel/eslint-parser');
+import reactPlugin from 'eslint-plugin-react';
+import babelParser from '@babel/eslint-parser';
 
-module.exports = [
+export default [
   {
     languageOptions: {
       globals: {
