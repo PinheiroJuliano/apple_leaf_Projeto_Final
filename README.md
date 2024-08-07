@@ -8,4 +8,4 @@ O site está integrado ao **MongoDB** para gerenciar logins, sessões e cadastro
 
 ## Aspectos Técnicos
 
-Do ponto de vista técnico, o sistema possui diversas dependências que podem ser instaladas através do comando `npm install`. Para executar o projeto, basta utilizar o comando `npm start`, pois o ambiente já está configurado para iniciar tanto o back-end quanto o front-end simultaneamente.
+Do ponto de vista técnico, o sistema possui diversas dependências que podem ser instaladas através do comando `node installAll.js`. Para executar o projeto, basta utilizar o comando `npm start`, pois o ambiente já está configurado para iniciar tanto o back-end quanto o front-end simultaneamente.
