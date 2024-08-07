@@ -67,7 +67,9 @@ const Home = ({ categories, setCategories }) => {
       </div>
 
       {/* Seções do tipo pagebuilder-column */}
-      <h2 className='categories_banner_header' id='tittle'>Categorias</h2>
+      <h2 className='categories_banner_header' id='tittle'>
+        Categorias
+      </h2>
       <div className='grid-container'>
         {categories.length === 0 ? (
           <div>Carregando categorias...</div>
@@ -90,7 +92,7 @@ const Home = ({ categories, setCategories }) => {
         )}
       </div>
       <button onClick={handleShowAll} className='show-all-button'>
-        <div className='show-all-container'>        
+        <div className='show-all-container'>
           <img src='/eye.svg'></img>
           Ver todos os produtos
         </div>
