@@ -48,7 +48,7 @@ h1{
 }
 
 /* Estilo para dispositivos móveis */
-@media only screen and (width <= 768px) {
+@media only screen and (width <= 660px) {
   .product-card.clicked .product-price {
     background-color: var(--cor-primaria-variavel);
     border-bottom: 4px var(--black) solid;

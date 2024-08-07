@@ -83,6 +83,10 @@ const App = () => {
             />
           </div>
         </div>
+        <div className='logo-container'>
+          <img src='/logo.svg'></img>
+          <h1 className='logo-text'>AppleLeaf</h1>
+        </div>
         <div className='nav-right'>
           {user ? (
             <>

@@ -43,6 +43,13 @@ html, body {
   padding: 10px 20px;
 }
 
+.logo-container{
+  display: flex;
+  gap: 0.4em;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav-left, .nav-right {
   display: flex;
   align-items: center;
@@ -194,4 +201,8 @@ html, body {
     flex-direction: column;
     gap: 0.2em;
   } 
+
+  .logo-text{
+    display: none;
+  }
 }
