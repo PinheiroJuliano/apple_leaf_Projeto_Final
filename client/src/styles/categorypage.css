@@ -17,6 +17,11 @@
   padding: 20px;
 }
 
+h1{
+  font-size: 1.1em;
+  font-family: var(--fonte-primaria);
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));

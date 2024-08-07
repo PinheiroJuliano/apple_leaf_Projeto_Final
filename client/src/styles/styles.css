@@ -213,6 +213,7 @@ html, body {
   padding: 20px;
   background-color: #fff;
   min-height: 40%; /* Defina uma altura mínima conforme necessário */
+  box-shadow: 1px 0.5px 9px var(--cor-terciaria);
 }
 
 .swiper-container {
