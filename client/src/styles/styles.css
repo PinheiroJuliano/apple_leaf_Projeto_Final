@@ -126,8 +126,8 @@ html, body {
 
 .profile-menu {
   position: absolute;
-  top: 3.36em;
-  right: 0;
+  top: 4.4em;
+  right: 0.77em;
   background-color: var(--cor-secundaria);
   box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
   z-index: 1000;
@@ -204,5 +204,10 @@ html, body {
 
   .logo-text{
     display: none;
+  }
+
+  .profile-menu {
+    position: absolute;
+    top: 4.05em;
   }
 }
