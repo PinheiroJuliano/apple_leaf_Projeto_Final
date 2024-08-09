@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import '../styles/home.css'; // Importando o arquivo de estilo
 import Banner from './Banner'; // Importe o componente Banner
+import Banner2 from './Banner2'; // Importe o componente Banner
 import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
 import CategoryList from './CategoryList'; // Importe o componente CategoryList
 
@@ -74,21 +75,23 @@ const Home = ({ categories, setCategories }) => {
         {categories.length === 0 ? (
           <div>Carregando categorias...</div>
         ) : (
-          categories.map((category, index) => (
-            <Link
-              to={`/${category.name}`}
-              key={index}
-              className={`cell cell${index}`}
-              id='cell'
-            >
-              <div
-                className={`cell cell${index}`} // Atribuindo a classe com o índice
-                style={{ backgroundImage: `url(${category.image})` }}
+          categories
+            .filter((category) => category.main) // Filtra para trazer apenas categorias onde main é true
+            .map((category, index) => (
+              <Link
+                to={`/${category.name}`}
+                key={index}
+                className={`cell cell${index}`}
+                id='cell'
               >
-                <h3 className='categories_banner_tittle'>{category.name}</h3>
-              </div>
-            </Link>
-          ))
+                <div
+                  className={`cell cell${index}`} // Atribuindo a classe com o índice
+                  style={{ backgroundImage: `url(${category.image})` }}
+                >
+                  <h3 className='categories_banner_tittle'>{category.name}</h3>
+                </div>
+              </Link>
+            ))
         )}
       </div>
       <button onClick={handleShowAll} className='show-all-button'>
@@ -97,6 +100,7 @@ const Home = ({ categories, setCategories }) => {
           Ver todos os produtos
         </div>
       </button>
+      <Banner2 />
     </div>
   );
 };

@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react';
 
-const CategoryList = ({ setCategories }) => {
+const CategoryList = ({ setCategories, filterMain }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3001/categories');
+        let url = 'http://localhost:3001/categories';
+
+        // Se filterMain for true, adicionar o parâmetro de consulta à URL
+        if (filterMain) {
+          url += '?main=true';
+        }
+
+        const response = await fetch(url);
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -13,7 +20,7 @@ const CategoryList = ({ setCategories }) => {
     };
 
     fetchCategories();
-  }, [setCategories]);
+  }, [setCategories, filterMain]);
 
   return null; // Este componente não renderiza nada visivelmente
 };
