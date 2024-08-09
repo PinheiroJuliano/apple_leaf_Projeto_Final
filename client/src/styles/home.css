@@ -67,33 +67,57 @@ html, body {
     padding-left: 0.5em;
   }
   
+  .swiper-slide{
+    height: 20em;
+    }
+
   .swiper-wrapper{
-    height: 60%;
+    height: 26em;
+    align-items: center;
   }
   
   .highlights-section {
-    padding: 1.25em;
+    height: auto;
+    padding: 1.25em; /* O padding ainda será aplicado */
     background-color: #fff;
-    min-height: 60%; /* Defina uma altura mínima conforme necessário */
     box-shadow: 1px 0.5px 9px var(--cor-terciaria);
   }
-  
+
   .swiper-container {
     height: 100%; /* A altura do contêiner Swiper será 100% da altura da seção de destaques */
   }
   
+  .product-price{
+    margin-bottom: 4em;
+  }
+
+  .swiper-pagination{
+    bottom: 100%; /* Ajuste essa distância conforme necessário */
+  }
+
+  .swiper-pagination-bullet {
+    background-color: #000;
+    opacity: 0.7;
+    border-radius: 0;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: var(--cor-primaria-variavel);
+    opacity: 1;
+  }
+
   .highlight-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100%; /* A altura do item de destaque será 100% da altura do slide */
+    height: auto; /* A altura do item de destaque será 100% da altura do slide */
   }
   
   .highlight-item img {
     max-width: 50%;
-    max-height: 20%; /* Ajuste conforme necessário para evitar imagens muito grandes */
+    height: auto;
     object-fit:contain; /* Ajuste a imagem para caber dentro do contêiner sem cortar */
     border-radius: 10%;
     margin-bottom: 10px;
@@ -102,6 +126,7 @@ html, body {
   .highlight-item p {
     font-size: 14px;
     margin: 5px 0;
+    font-weight: bold;
   }
    
   .menu-categories span {
@@ -306,6 +331,11 @@ html, body {
       background-size:cover;
       background-repeat: no-repeat;
       background-position:top;
+    }
+
+    .swiper-wrapper{
+      height: 20em;
+      align-items: center;
     }
 
   }

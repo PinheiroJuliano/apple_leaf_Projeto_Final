@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules'; // Importa o módulo de paginação
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import '../styles/home.css'; // Importando o arquivo de estilo
-import Banner from './Banner'; // Importe o componente Banner
-import Banner2 from './Banner2'; // Importe o componente Banner
-import fetchProducts from './fetchProducts'; // Importe a função fetchProducts
-import CategoryList from './CategoryList'; // Importe o componente CategoryList
+import '../styles/home.css';
+import Banner from './Banner';
+import Banner2 from './Banner2';
+import fetchProducts from './fetchProducts';
+import CategoryList from './CategoryList';
 
 const Home = ({ categories, setCategories }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Carregar produtos destacados na inicialização
     const loadProducts = async () => {
       const highlightedProducts = await fetchProducts({ destaque: true });
       setProducts(highlightedProducts);
     };
 
     loadProducts();
-  }, []); // Executa apenas na montagem do componente
+  }, []);
 
   const handleShowAll = () => {
-    // Redireciona para a rota de categoria "Todos"
     window.location.href = '/Todos';
   };
 
@@ -44,30 +43,33 @@ const Home = ({ categories, setCategories }) => {
           Destaques
         </h2>
         <Swiper
-          spaceBetween={0} // Espaço entre os slides
-          slidesPerView={1} // Quantidade de slides visíveis ao mesmo tempo
+          modules={[Pagination]} // Certifique-se de que o módulo de paginação é carregado
+          spaceBetween={0}
+          slidesPerView={1}
           breakpoints={{
             320: { slidesPerView: 1 },
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 2 },
           }}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
+          pagination={{
+            clickable: true,
+            type: 'bullets',
+            dynamicBullets: true,
+          }}
         >
           {products.map((product) => (
             <SwiperSlide key={product._id}>
               <div className='highlight-item'>
                 <img src={product.image} alt={product.name} />
                 <p>{product.name}</p>
-                <p>R$ {product.price.toFixed(2)}</p>
+                <button className='product-price'>R$ {product.price.toFixed(2)}</button>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
 
-      {/* Seções do tipo pagebuilder-column */}
       <h2 className='categories_banner_header' id='tittle'>
         Categorias
       </h2>
@@ -76,7 +78,7 @@ const Home = ({ categories, setCategories }) => {
           <div>Carregando categorias...</div>
         ) : (
           categories
-            .filter((category) => category.main) // Filtra para trazer apenas categorias onde main é true
+            .filter((category) => category.main)
             .map((category, index) => (
               <Link
                 to={`/${category.name}`}
@@ -85,7 +87,7 @@ const Home = ({ categories, setCategories }) => {
                 id='cell'
               >
                 <div
-                  className={`cell cell${index}`} // Atribuindo a classe com o índice
+                  className={`cell cell${index}`}
                   style={{ backgroundImage: `url(${category.image})` }}
                 >
                   <h3 className='categories_banner_tittle'>{category.name}</h3>
