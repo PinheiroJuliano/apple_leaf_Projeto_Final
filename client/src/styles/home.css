@@ -91,6 +91,10 @@ html, body {
     margin-bottom: 4em;
   }
 
+  .product-value{
+    margin-bottom: 0.1em;
+  }
+
   .swiper-pagination{
     bottom: 100%; /* Ajuste essa distância conforme necessário */
   }

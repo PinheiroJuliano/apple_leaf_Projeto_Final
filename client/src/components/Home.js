@@ -63,7 +63,8 @@ const Home = ({ categories, setCategories }) => {
               <div className='highlight-item'>
                 <img src={product.image} alt={product.name} />
                 <p>{product.name}</p>
-                <button className='product-price'>R$ {product.price.toFixed(2)}</button>
+                <h3 className='product-value'>R$ {product.price.toFixed(2)}</h3>
+                <button className='product-price'>Comprar</button>
               </div>
             </SwiperSlide>
           ))}
