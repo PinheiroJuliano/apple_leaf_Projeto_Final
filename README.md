@@ -1,3 +1,5 @@
+![npm bundle size](https://img.shields.io/bundlephobia/:format/:packageName)
+
 # Projeto Loja: AppleLeaf (fictícia)
 
 **Projeto final desenvolvido para o Programa Desenvolve 2024 do grupo Boticário.**
