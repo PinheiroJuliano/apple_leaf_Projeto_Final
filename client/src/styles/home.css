@@ -67,13 +67,15 @@ html, body {
     padding-left: 0.5em;
   }
   
-  .swiper-slide{
-    height: 20em;
-    }
-
   .swiper-wrapper{
-    height: 26em;
+    height: 100%;
     align-items: center;
+  }
+
+  .swiper-slide {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   
   .highlights-section {
@@ -83,12 +85,31 @@ html, body {
     box-shadow: 1px 0.5px 9px var(--cor-terciaria);
   }
 
-  .swiper-container {
-    height: 100%; /* A altura do contêiner Swiper será 100% da altura da seção de destaques */
+  .highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Ajusta a altura automaticamente conforme o conteúdo */
+
   }
   
+  .highlight-item img {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 1em;
+  }
+  
+  .highlight-item p {
+    font-size: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    margin-top: 0;
+    grid-row: 2; /* Coloca o p na penúltima linha */
+  }
   .product-price{
     margin-bottom: 4em;
+    margin-top: 0;
   }
 
   .product-value{
@@ -98,6 +119,7 @@ html, body {
   .swiper-pagination{
     bottom: 100%; /* Ajuste essa distância conforme necessário */
   }
+  
 
   .swiper-pagination-bullet {
     background-color: #000;
@@ -108,29 +130,6 @@ html, body {
   .swiper-pagination-bullet-active {
     background-color: var(--cor-primaria-variavel);
     opacity: 1;
-  }
-
-  .highlight-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: auto; /* A altura do item de destaque será 100% da altura do slide */
-  }
-  
-  .highlight-item img {
-    max-width: 50%;
-    height: auto;
-    object-fit:contain; /* Ajuste a imagem para caber dentro do contêiner sem cortar */
-    border-radius: 10%;
-    margin-bottom: 10px;
-  }
-  
-  .highlight-item p {
-    font-size: 14px;
-    margin: 5px 0;
-    font-weight: bold;
   }
    
   .menu-categories span {
@@ -338,7 +337,7 @@ html, body {
     }
 
     .swiper-wrapper{
-      height: 20em;
+      height: 40%;
       align-items: center;
     }
 

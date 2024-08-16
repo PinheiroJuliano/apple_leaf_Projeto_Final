@@ -31,5 +31,8 @@
         "jsxSingleQuote": true,
         "bracketSpacing": true,
         "arrowParens": "always"
+    },
+    "dependencies": {
+        "prom-client": "^15.1.3"
     }
 }
