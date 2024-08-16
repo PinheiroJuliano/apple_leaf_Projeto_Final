@@ -108,9 +108,9 @@ html, body {
     grid-row: 2; /* Coloca o p na penúltima linha */
   }
   .product-price{
-    margin-bottom: 4em;
+    margin-bottom: 1.5em;
     margin-top: 0;
-  }
+  } 
 
   .product-value{
     margin-bottom: 0.1em;
